@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc.Formatters;
+
 namespace CityInfo.API
 {
     public class Startup
@@ -17,7 +18,7 @@ namespace CityInfo.API
         {
             services.AddMvc()
                 .AddMvcOptions(o =>
-                o.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter())
+                o.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter())//For return  response as XML format
                 );
         }
 
@@ -34,7 +35,7 @@ namespace CityInfo.API
             }
 
             app.UseStatusCodePages();
-            app.UseMvc();
+            app.UseMvc(); 
         }
     }
 }
