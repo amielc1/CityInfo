@@ -1,4 +1,5 @@
-﻿using CityInfo.API.Models;
+﻿using CityInfo.API.Contexts;
+using CityInfo.API.Models;
 using CityInfo.API.Services;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -18,7 +19,7 @@ namespace CityInfo.API.Controllers
         private readonly IMailService _mailService;
 
         public PointsOfInterestController(ILogger<PointsOfInterestController> logger,
-                                            IMailService mailService)
+                                            IMailService mailService, CityInfoContext context)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _mailService = mailService ?? throw new ArgumentNullException(nameof(mailService));
