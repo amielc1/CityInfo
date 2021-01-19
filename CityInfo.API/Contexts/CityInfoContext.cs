@@ -14,7 +14,7 @@ namespace CityInfo.API.Contexts
 
         public CityInfoContext(DbContextOptions options):base(options)
         {
-            Database.EnsureCreated();
+           // Database.EnsureCreated();
         }
     }
 }
