@@ -48,7 +48,7 @@ namespace CityInfo.API.Controllers
             }
         }
 
-        [HttpGet("{id}", Name = "GetPointOfInterest")]
+        [HttpGet("{id}", Name = nameof(GetPointOfInterest))]
         public IActionResult GetPointOfInterest(int cityId, int id)
         {
             var city = CitiesDataStore.Current.Cities
@@ -107,7 +107,7 @@ namespace CityInfo.API.Controllers
             city.PointsOfInterest.Add(finalPointOfInterest);
 
             return CreatedAtRoute(
-                "GetPointOfInterest",
+                nameof(GetPointOfInterest),
                 new { cityId, id = finalPointOfInterest.Id },
                 finalPointOfInterest);
         }

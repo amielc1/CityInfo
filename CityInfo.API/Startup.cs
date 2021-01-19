@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using CityInfo.API.Services;
+using CityInfo.API.Contexts;
 
 namespace CityInfo.API
 {
@@ -22,6 +23,7 @@ namespace CityInfo.API
                 o.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter())//For return  response as XML format
                 );
             services.AddTransient<IMailService, LocalMailService>();
+            services.AddDbContext<CityInfoContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

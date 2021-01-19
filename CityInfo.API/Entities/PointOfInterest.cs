@@ -12,6 +12,11 @@ namespace CityInfo.API.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [Required(ErrorMessage = "You need to provide a Name")]
+        [MaxLength(50)]
         public string Name { get; set; }
+        [ForeignKey(nameof(CityId))]
+        public City City { get; set; }
+        public int CityId { get; set; }
     }
 }
